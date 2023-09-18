@@ -1,16 +1,14 @@
 // code here
 
-import eu.mihosoft.vrl.v3d.*;
-import javafx.scene.text.Font;
+CSG text = CSG.text("Ella",5)
 
-Font font = new Font("Arial",  30);
+CSG rotatedText = text.rotz(90)
 
-CSG text = CSG.unionAll(
-	TextExtrude.text((double)2,"Ella",font).collect{
-	it.rotx(180)
-	.toZMin()
-	)
-}
+double distanceyCenter = rotatedText.getCenterY()
+
+println "Center of Word "+distanceyCenter
+
+CSG centeredText = rotatedText.movey(-distanceyCenter)
 
 double width=30
 double depth=70
@@ -22,4 +20,4 @@ println "depth is "+depth
 
 CSG nameTagBase = new Cube(width,depth,height).toCSG()
 
-return (nameTagBase)
+return [nameTagBase,centeredText]
