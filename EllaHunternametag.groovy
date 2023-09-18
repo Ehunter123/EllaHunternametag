@@ -19,6 +19,9 @@ double scale = depth/widthOfText
 
 CSG scaledText = centeredText.scaley(scale)
 
+double distanceInX = scaledText.getCenterX()
+CSG textCenteredInX = scaledText.movex(-distanceInX)
+
 println "Scale for the text "+scale
 println "Total text width is "+widthOfText
 println "Width is "+width
@@ -27,4 +30,4 @@ println "depth is "+depth
 
 CSG nameTagBase = new Cube(width,depth,height).toCSG()
 
-return [nameTagBase,scaledText]
+return [nameTagBase,textCenteredInX]
