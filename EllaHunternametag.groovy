@@ -13,11 +13,18 @@ CSG centeredText = rotatedText.movey(-distanceyCenter)
 double width=30
 double depth=70
 double height=3
+double widthOfText = centeredText.getTotalY()+4.0
 
+double scale = depth/widthOfText
+
+CSG scaledText = centeredText.scaley(scale)
+
+println "Scale for the text "+scale
+println "Total text width is "+widthOfText
 println "Width is "+width
 println "Height is "+height
 println "depth is "+depth
 
 CSG nameTagBase = new Cube(width,depth,height).toCSG()
 
-return [nameTagBase,centeredText]
+return [nameTagBase,scaledText]
