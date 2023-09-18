@@ -1,6 +1,6 @@
 // code here
 
-CSG text = CSG.text("Ella",5)
+CSG text = CSG.text("Ella!!",5)
 
 CSG rotatedText = text.rotz(90)
 
